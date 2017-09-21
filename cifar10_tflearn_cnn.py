@@ -19,7 +19,8 @@ steps = 100
 print('x_train shape:', x_train.shape)
 y_train = to_categorical(y_train.flatten(), num_classes)
 x_train = x_train.astype('float32')
-x_train = x_train / 255.0
+x_train = x_train / 127.5
+x_train = x_train - 1
 test_cnt = int(len(x_train) * 0.2)
 x_test = x_train[:test_cnt]
 y_test = y_train[:test_cnt]

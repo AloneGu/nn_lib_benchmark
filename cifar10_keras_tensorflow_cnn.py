@@ -14,7 +14,8 @@ epochs = 5
 (x_train, y_train) = pickle.load(open('data/cifar_data.pkl', 'rb'))
 print('x_train shape:', x_train.shape)
 x_train = x_train.astype('float32')
-x_train = x_train / 255.0
+x_train = x_train / 127.5
+x_train = x_train - 1
 # Convert class vectors to binary class matrices.
 y_train = to_categorical(y_train, num_classes)
 

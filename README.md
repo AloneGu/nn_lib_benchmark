@@ -137,33 +137,32 @@ Training Step: 80  | total loss: 2.26888 | time: 16.320s
 * pytorch
 
 ```
-Using TensorFlow backend.
 x_train shape: (2000, 32, 32, 3)
 [[6]
  [9]
  [9]
  [4]
  [1]]
-[[ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
- [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
- [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
- [ 0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
- [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.]]
 new x_train shape: (2000, 3, 32, 32)
 <class 'torch.autograd.variable.Variable'>
 epoch 1
-time cost 10.549 train loss 1063.447075843811 train acc 0.7915 test loss 2.302595615386963
+time cost 10.796 train loss 312119.2623 train acc 0.1075
+test loss 2.3079
 ------------------------
 epoch 2
-time cost 10.4082 train loss 36.84132432937622 train acc 0.899 test loss 2.302595615386963
+time cost 10.8413 train loss 36.8788 train acc 0.1055
+test loss 2.3026
 ------------------------
 epoch 3
-time cost 10.3986 train loss 36.84132432937622 train acc 0.899 test loss 2.302595615386963
+time cost 10.8413 train loss 36.8413 train acc 0.101
+test loss 2.3026
 ------------------------
 epoch 4
-time cost 10.4311 train loss 36.84132432937622 train acc 0.899 test loss 2.302595615386963
+time cost 10.9366 train loss 36.8413 train acc 0.101
+test loss 2.3026
 ------------------------
 epoch 5
-time cost 10.3178 train loss 36.84132432937622 train acc 0.899 test loss 2.302595615386963
+time cost 10.9254 train loss 36.8413 train acc 0.101
+test loss 2.3026
 ------------------------
 ```

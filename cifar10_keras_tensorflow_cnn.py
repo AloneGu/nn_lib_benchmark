@@ -47,6 +47,7 @@ model.add(Dense(num_classes))
 model.add(Activation('softmax'))
 
 import time
+
 start_t = time.time()
 model.compile(loss='categorical_crossentropy',
               optimizer="rmsprop",

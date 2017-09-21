@@ -19,15 +19,15 @@ steps = 100
 print('x_train shape:', x_train.shape)
 y_train = to_categorical(y_train.flatten(), num_classes)
 x_train = x_train.astype('float32')
-x_train = x_train/ 255.0
+x_train = x_train / 255.0
 test_cnt = int(len(x_train) * 0.2)
 x_test = x_train[:test_cnt]
 y_test = y_train[:test_cnt]
 
 # Convolutional network building
 network = input_data(shape=[None, 32, 32, 3])
-network = conv_2d(network, 32, 3, activation='relu',padding='same')
-network = conv_2d(network, 32, 3, activation='relu',padding='same')
+network = conv_2d(network, 32, 3, activation='relu', padding='same')
+network = conv_2d(network, 32, 3, activation='relu', padding='same')
 network = max_pool_2d(network, 2)
 network = conv_2d(network, 64, 3, activation='relu')
 network = conv_2d(network, 64, 3, activation='relu')
@@ -46,8 +46,6 @@ start_t = time.time()
 model = tflearn.DNN(network, tensorboard_verbose=0)
 end_t = time.time()
 print("compile done", "time cost: {:.4f}s".format(end_t - start_t))
-
-
 
 model.fit(x_train, y_train, n_epoch=epochs, shuffle=True,
           validation_set=(x_test, y_test),

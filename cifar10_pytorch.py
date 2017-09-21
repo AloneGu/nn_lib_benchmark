@@ -1,7 +1,6 @@
 # load data
 import numpy as np
 import pickle
-from keras.utils import to_categorical
 
 # pytorch
 import torch.optim as optim
@@ -19,8 +18,6 @@ epochs = 5
 # The data, shuffled and split between train and test sets:
 (x_train, y_train) = pickle.load(open('data/cifar_data.pkl', 'rb'))
 print('x_train shape:', x_train.shape)
-print(y_train[:5])
-y_train = to_categorical(y_train, num_classes)
 print(y_train[:5])
 
 y_train = y_train.astype('int64')  # for long tensor
@@ -119,5 +116,8 @@ for i in range(epochs):
     time_cost = end_t - start_t
     time_cost = round(time_cost, 4)
 
-    print("time cost", time_cost, "train loss", train_loss, "train acc", 1.0 * correct / total, "test loss", test_loss)
+    train_acc = round(1.0 * correct / total, 4)
+
+    print("time cost", time_cost, "train loss", round(train_loss, 4), "train acc", train_acc)
+    print("test loss", round(test_loss, 4))
     print("------------------------")

@@ -1,16 +1,15 @@
 ## compare different nn lib
 
-use 2000 image from cifar 10
+:confused:  :confused:
 
+use 2000 image from cifar 10, test rate = 0.2
 
-
-test params:
+run params:
 
 ```
 batch_size = 128
 num_classes = 10
 epochs = 5
-steps = 100
 ```
 
 ### outputs cpu
@@ -38,6 +37,8 @@ Epoch 5/5
 ```
 
 * keras theano
+
+:thumbsdown: very slow
 
 ```
 Using TensorFlow backend.

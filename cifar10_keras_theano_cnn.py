@@ -3,8 +3,10 @@ import os
 
 # change to theano
 from keras import backend as K
+
 os.environ['KERAS_BACKEND'] = "theano"
 import importlib
+
 importlib.reload(K)
 
 # set img dim order
@@ -21,7 +23,6 @@ batch_size = 128
 num_classes = 10
 epochs = 5
 
-
 # The data, shuffled and split between train and test sets:
 (x_train, y_train) = pickle.load(open('data/cifar_data.pkl', 'rb'))
 print('x_train shape:', x_train.shape)
@@ -30,8 +31,15 @@ print('x_train shape:', x_train.shape)
 x_train = np.transpose(x_train, [0, 3, 2, 1])
 print('new x_train shape:', x_train.shape)
 
+x_train = x_train.astype('float32')
+x_train = x_train / 255.0
+
 # Convert class vectors to binary class matrices.
 y_train = to_categorical(y_train, num_classes)
+
+test_cnt = int(len(x_train) * 0.2)
+x_test = x_train[:test_cnt]
+y_test = y_train[:test_cnt]
 
 model = Sequential()
 
@@ -57,21 +65,18 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes))
 model.add(Activation('softmax'))
 
-# Let's train the model using RMSprop
 import time
+
 start_t = time.time()
 model.compile(loss='categorical_crossentropy',
-              optimizer="rmsprop",
+              optimizer='rmsprop',
               metrics=['accuracy'])
 end_t = time.time()
-print("compile done","time cost: {:.4f}s".format(end_t-start_t))
-
-x_train = x_train.astype('float32')
-x_train /= 255
+print("compile done", "time cost: {:.4f}s".format(end_t - start_t))
 
 model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
           shuffle=True,
           verbose=2,
-          validation_split=0.2)
+          validation_data=(x_test, y_test))

@@ -160,10 +160,10 @@ time cost 10.1774 train loss 1.8126 train acc 0.35
 
 | lib      | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
 | ---------|--------------|------------------|---------|---------|------------|-------------|
-|epo time  |       25       |         9.2         |    10.29     |     11.395    |            |             |
-|imgs/s    |              |                  |         |         |            |             |
-|5 epo acc |              |                  |         |         |            |             |
-|5 epo loss|              |                  |         |         |            |             |
+|epo time|25|9.2|10.29|11.395| | |
+|imgs/s|96|260|233|210| | |
+|5 epo acc|0.38|0.37|0.35|0.28| | |
+|5 epo loss|1.71|1.71|1.81|2.27| | |
 
 
 

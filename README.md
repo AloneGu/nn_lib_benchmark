@@ -102,6 +102,51 @@ Epoch 5/5
 
 * tensorlayer
 
+```
+x_train shape: (2000, 32, 32, 3)
+(2000, 32, 32, 3) (2000,) float32 int64
+  [TL] InputLayer  model/input: (?, 32, 32, 3)
+  [TL] Conv2dLayer model/cnn1: shape:[3, 3, 3, 32] strides:[1, 1, 1, 1] pad:SAME act:relu
+  [TL] Conv2dLayer model/cnn2: shape:[3, 3, 32, 32] strides:[1, 1, 1, 1] pad:VALID act:relu
+  [TL] PoolLayer   model/pool1: ksize:[1, 2, 2, 1] strides:[1, 2, 2, 1] padding:VALID pool:max_pool
+  [TL] skip DropoutLayer
+  [TL] Conv2dLayer model/cnn3: shape:[3, 3, 32, 64] strides:[1, 1, 1, 1] pad:SAME act:relu
+  [TL] Conv2dLayer model/cnn4: shape:[3, 3, 64, 64] strides:[1, 1, 1, 1] pad:VALID act:relu
+  [TL] PoolLayer   model/pool2: ksize:[1, 2, 2, 1] strides:[1, 2, 2, 1] padding:VALID pool:max_pool
+  [TL] skip DropoutLayer
+  [TL] FlattenLayer model/flatten: 2304
+  [TL] DenseLayer  model/d1relu: 512 relu
+  [TL] DenseLayer  model/output: 10 identity
+2017-09-22 17:39:11.667582: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-09-22 17:39:11.667608: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-09-22 17:39:11.667632: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+  layer   0: model/cnn1/Relu:0    (?, 32, 32, 32)    float32
+  layer   1: model/cnn2/Relu:0    (?, 30, 30, 32)    float32
+  layer   2: model/pool1:0        (?, 15, 15, 32)    float32
+  layer   3: model/cnn3/Relu:0    (?, 15, 15, 64)    float32
+  layer   4: model/cnn4/Relu:0    (?, 13, 13, 64)    float32
+  layer   5: model/pool2:0        (?, 6, 6, 64)      float32
+  layer   6: model/flatten:0      (?, 2304)          float32
+  layer   7: model/d1relu/Relu:0  (?, 512)           float32
+  layer   8: model/output/Identity:0 (?, 10)            float32
+start training
+train loss: 2.226798    train acc: 0.191667
+test loss: 2.148892    test acc: 0.223958
+Epoch 1 of 5 took 10.944669s
+train loss: 2.069909    train acc: 0.239063
+test loss: 2.061012    test acc: 0.223958
+Epoch 2 of 5 took 10.411697s
+train loss: 2.013204    train acc: 0.272396
+test loss: 2.060253    test acc: 0.265625
+Epoch 3 of 5 took 10.413013s
+train loss: 1.966290    train acc: 0.293750
+test loss: 1.956488    test acc: 0.291667
+Epoch 4 of 5 took 10.517860s
+train loss: 1.920005    train acc: 0.304167
+test loss: 1.959207    test acc: 0.312500
+Epoch 5 of 5 took 10.336267s
+```
+
 * tflearn
 
 ```
@@ -160,10 +205,10 @@ time cost 10.1774 train loss 1.8126 train acc 0.35
 
 | lib      | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
 | ---------|--------------|------------------|---------|---------|------------|-------------|
-|epo time(s)|25|9.2|10.29|11.395| | |
-|imgs/s|96|260|233|210| | |
-|5 epo acc|0.38|0.37|0.35|0.28| | |
-|5 epo loss|1.71|1.71|1.81|2.27| | |
+|epo time(s)|25|9.2|10.29|11.395| |10.525|
+|imgs/s|96|260|233|210| |228|
+|5 epo acc|0.38|0.37|0.35|0.28| |0.30|
+|5 epo loss|1.71|1.71|1.81|2.27| |1.92|
 
 
 

@@ -32,7 +32,7 @@ print('new x_train shape:', x_train.shape)
 x_train = torch.from_numpy(x_train)
 y_train = torch.from_numpy(y_train)
 
-x_test  = x_train[:400]
+x_test = x_train[:400]
 x_test = Variable(x_test, volatile=True)
 
 train_loader = DataLoader(TensorDataset(x_train, y_train), batch_size=batch_size, shuffle=False, num_workers=4)

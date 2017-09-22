@@ -1,3 +1,4 @@
 *.pyc
 notebooks/.ipynb_checkpoints/
 .idea/
+data/big_cifar_data.pkl

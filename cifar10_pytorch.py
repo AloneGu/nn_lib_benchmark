@@ -118,6 +118,7 @@ for i in range(epochs):
     time_cost = round(time_cost, 4)
 
     train_acc = round(1.0 * correct / total, 4)
+    train_loss = train_loss / (batch_idx+1)
 
     print("time cost", time_cost, "train loss", round(train_loss, 4), "train acc", train_acc)
     print("test loss", round(test_loss, 4))

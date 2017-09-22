@@ -145,23 +145,23 @@ x_train shape: (2000, 32, 32, 3)
 new x_train shape: (2000, 3, 32, 32)
 <class 'torch.autograd.variable.Variable'>
 epoch 1
-time cost 11.9078 train loss 166434.4122 train acc 0.097
-test loss 2.3026
+time cost 10.8026 train loss 6502.6393 train acc 0.099
+test loss 2.3152
 ------------------------
 epoch 2
-time cost 10.8489 train loss 36.8413 train acc 0.101
-test loss 2.3026
+time cost 11.3396 train loss 2.3097 train acc 0.103
+test loss 2.3061
 ------------------------
 epoch 3
-time cost 10.6897 train loss 36.8413 train acc 0.101
-test loss 2.3026
+time cost 11.5777 train loss 2.305 train acc 0.1035
+test loss 2.3047
 ------------------------
 epoch 4
-time cost 10.7904 train loss 36.8413 train acc 0.101
-test loss 2.3026
+time cost 11.4793 train loss 2.3042 train acc 0.1035
+test loss 2.3039
 ------------------------
 epoch 5
-time cost 10.8455 train loss 36.8413 train acc 0.101
-test loss 2.3026
+time cost 10.6634 train loss 2.303 train acc 0.102
+test loss 2.3037
 ------------------------
 ```

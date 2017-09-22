@@ -25,12 +25,12 @@ y_test = y_train[:test_cnt]
 # Convolutional network building
 network = input_data(shape=[None, 32, 32, 3])
 network = conv_2d(network, 32, 3, activation='relu', padding='same')
-network = conv_2d(network, 32, 3, activation='relu')
-network = max_pool_2d(network, 2)
+network = conv_2d(network, 32, 3, activation='relu', padding='valid')
+network = max_pool_2d(network, 2, padding='valid')
 network = dropout(network, 0.25)
 network = conv_2d(network, 64, 3, activation='relu', padding='same')
-network = conv_2d(network, 64, 3, activation='relu')
-network = max_pool_2d(network, 2)
+network = conv_2d(network, 64, 3, activation='relu', padding='valid')
+network = max_pool_2d(network, 2, padding='valid')
 network = dropout(network, 0.25)
 network = fully_connected(network, 512, activation='relu')
 network = fully_connected(network, 10, activation='softmax')
@@ -47,7 +47,7 @@ model = tflearn.DNN(network, tensorboard_verbose=0)
 end_t = time.time()
 print("compile done", "time cost: {:.4f}s".format(end_t - start_t))
 
-model.fit(x_train, y_train, n_epoch=epochs, shuffle=True,
+model.fit(x_train, y_train, n_epoch=epochs, shuffle=False,
           validation_set=(x_test, y_test),
           show_metric=True, batch_size=batch_size,
           run_id='cifar10_cnn')

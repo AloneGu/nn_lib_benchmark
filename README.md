@@ -61,7 +61,28 @@ activation_6 (Activation)    (None, 10)                0
 
 cpu: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 CPUs), ~2.6GHz
 
-* keras tensorflow
+* keras theano
+
+```
+Using TensorFlow backend.
+Using Theano backend.
+x_train shape: (2000, 32, 32, 3)
+new x_train shape: (2000, 3, 32, 32)
+compile done time cost: 0.0269s
+Train on 2000 samples, validate on 400 samples
+Epoch 1/5
+26s - loss: 2.2755 - acc: 0.1625 - val_loss: 2.1259 - val_acc: 0.2375
+Epoch 2/5
+25s - loss: 2.0030 - acc: 0.2695 - val_loss: 2.0813 - val_acc: 0.2125
+Epoch 3/5
+25s - loss: 1.9293 - acc: 0.3060 - val_loss: 1.8602 - val_acc: 0.3325
+Epoch 4/5
+25s - loss: 1.7746 - acc: 0.3655 - val_loss: 1.7072 - val_acc: 0.3925
+Epoch 5/5
+24s - loss: 1.7216 - acc: 0.3860 - val_loss: 1.6021 - val_acc: 0.4375
+```
+
+* keras tensorflow ( my default backend for running gen* scripts )
 
 ```
 Using TensorFlow backend.
@@ -79,26 +100,59 @@ Epoch 5/5
 8s - loss: 1.7480 - acc: 0.3740 - val_loss: 1.6333 - val_acc: 0.4075
 ```
 
-* keras theano
+* pytorch
 
 ```
-Using TensorFlow backend.
-Using Theano backend.
 x_train shape: (2000, 32, 32, 3)
+[6 9 9 4 1]
 new x_train shape: (2000, 3, 32, 32)
-compile done time cost: 0.0269s
-Train on 2000 samples, validate on 400 samples
-Epoch 1/5
-25s - loss: 2.2166 - acc: 0.1885 - val_loss: 2.1459 - val_acc: 0.1900
-Epoch 2/5
-25s - loss: 2.0188 - acc: 0.2620 - val_loss: 1.9437 - val_acc: 0.3475
-Epoch 3/5
-25s - loss: 1.8748 - acc: 0.3150 - val_loss: 1.7416 - val_acc: 0.3675
-Epoch 4/5
-25s - loss: 1.8143 - acc: 0.3480 - val_loss: 1.6150 - val_acc: 0.4550
-Epoch 5/5
-25s - loss: 1.7062 - acc: 0.3765 - val_loss: 1.6187 - val_acc: 0.4500
+epoch 1
+time cost 10.3165 train loss 4.5342 train acc 0.1445
+------------------------
+epoch 2
+time cost 10.2127 train loss 2.1014 train acc 0.226
+------------------------
+epoch 3
+time cost 10.4562 train loss 1.9809 train acc 0.2855
+------------------------
+epoch 4
+time cost 10.2894 train loss 1.8902 train acc 0.3175
+------------------------
+epoch 5
+time cost 10.1774 train loss 1.8126 train acc 0.35
+------------------------
 ```
+
+* tflearn
+
+```
+x_train shape: (2000, 32, 32, 3)
+compile done time cost: 0.6637s
+---------------------------------
+Run id: cifar10_cnn
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 2000
+Validation samples: 400
+--
+Training Step: 16  | total loss: 2.23561 | time: 11.649s
+| RMSProp | epoch: 001 | loss: 2.23561 - acc: 0.1553 | val_loss: 2.15268 - val_acc: 0.2525 -- iter: 2000/2000
+--
+Training Step: 32  | total loss: 2.07924 | time: 11.502s
+| RMSProp | epoch: 002 | loss: 2.07924 - acc: 0.2220 | val_loss: 2.05278 - val_acc: 0.2850 -- iter: 2000/2000
+--
+Training Step: 48  | total loss: 2.08184 | time: 11.294s
+| RMSProp | epoch: 003 | loss: 2.08184 - acc: 0.2482 | val_loss: 2.01115 - val_acc: 0.2450 -- iter: 2000/2000
+--
+Training Step: 64  | total loss: 1.99466 | time: 11.299s
+| RMSProp | epoch: 004 | loss: 1.99466 - acc: 0.2754 | val_loss: 1.91739 - val_acc: 0.2975 -- iter: 2000/2000
+--
+Training Step: 80  | total loss: 1.97854 | time: 11.233s
+| RMSProp | epoch: 005 | loss: 1.97854 - acc: 0.2813 | val_loss: 1.89704 - val_acc: 0.3475 -- iter: 2000/2000
+--
+```
+
+* tensorflow
 
 * tensorlayer
 
@@ -147,68 +201,16 @@ test loss: 1.959207    test acc: 0.312500
 Epoch 5 of 5 took 10.336267s
 ```
 
-* tflearn
 
-```
-x_train shape: (2000, 32, 32, 3)
-compile done time cost: 0.6637s
----------------------------------
-Run id: cifar10_cnn
-Log directory: /tmp/tflearn_logs/
----------------------------------
-Training samples: 2000
-Validation samples: 400
---
-Training Step: 16  | total loss: 2.23561 | time: 11.649s
-| RMSProp | epoch: 001 | loss: 2.23561 - acc: 0.1553 | val_loss: 2.15268 - val_acc: 0.2525 -- iter: 2000/2000
---
-Training Step: 32  | total loss: 2.07924 | time: 11.502s
-| RMSProp | epoch: 002 | loss: 2.07924 - acc: 0.2220 | val_loss: 2.05278 - val_acc: 0.2850 -- iter: 2000/2000
---
-Training Step: 48  | total loss: 2.08184 | time: 11.294s
-| RMSProp | epoch: 003 | loss: 2.08184 - acc: 0.2482 | val_loss: 2.01115 - val_acc: 0.2450 -- iter: 2000/2000
---
-Training Step: 64  | total loss: 1.99466 | time: 11.299s
-| RMSProp | epoch: 004 | loss: 1.99466 - acc: 0.2754 | val_loss: 1.91739 - val_acc: 0.2975 -- iter: 2000/2000
---
-Training Step: 80  | total loss: 1.97854 | time: 11.233s
-| RMSProp | epoch: 005 | loss: 1.97854 - acc: 0.2813 | val_loss: 1.89704 - val_acc: 0.3475 -- iter: 2000/2000
---
-```
-
-* native tensorflow
-
-* pytorch
-
-```
-x_train shape: (2000, 32, 32, 3)
-[6 9 9 4 1]
-new x_train shape: (2000, 3, 32, 32)
-epoch 1
-time cost 10.3165 train loss 4.5342 train acc 0.1445
-------------------------
-epoch 2
-time cost 10.2127 train loss 2.1014 train acc 0.226
-------------------------
-epoch 3
-time cost 10.4562 train loss 1.9809 train acc 0.2855
-------------------------
-epoch 4
-time cost 10.2894 train loss 1.8902 train acc 0.3175
-------------------------
-epoch 5
-time cost 10.1774 train loss 1.8126 train acc 0.35
-------------------------
-```
 
 ## results
 
-| lib      | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
-| ---------|--------------|------------------|---------|---------|------------|-------------|
-|epo time(s)|25|8.4|10.29|11.395| |10.525|
-|imgs/s|96|286|233|210| |228|
-|5 epo acc|0.38|0.37|0.35|0.28| |0.30|
-|5 epo loss|1.71|1.74|1.81|2.27| |1.92|
+| lib       | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
+| ----------|--------------|------------------|---------|---------|------------|-------------|
+|epo time(s)|25           |8.4               |10.29    |9.55     |none        |10.53|
+|imgs/s     |96           |286               |233      |251      |none        |228|
+|5 epo acc  |0.39         |0.37              |0.35     |0.26     |none        |0.30|
+|5 epo loss |1.72         |1.75              |1.81     |2.04     |none        |1.92|
 
 
 

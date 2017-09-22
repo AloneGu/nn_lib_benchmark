@@ -10,7 +10,7 @@ run params:
 batch_size = 128
 num_classes = 10
 epochs = 5
-optimizer = default RMSprop  ( SGD for pytorch)
+optimizer = default RMSprop
 ```
 
 model structure:
@@ -114,20 +114,20 @@ Log directory: /tmp/tflearn_logs/
 Training samples: 2000
 Validation samples: 400
 --
-Training Step: 16  | total loss: 2.30938 | time: 11.888s
-| RMSProp | epoch: 001 | loss: 2.30938 - acc: 0.0991 | val_loss: 2.29908 - val_acc: 0.0975 -- iter: 2000/2000
+Training Step: 16  | total loss: 2.23561 | time: 11.649s
+| RMSProp | epoch: 001 | loss: 2.23561 - acc: 0.1553 | val_loss: 2.15268 - val_acc: 0.2525 -- iter: 2000/2000
 --
-Training Step: 32  | total loss: 2.30410 | time: 11.936s
-| RMSProp | epoch: 002 | loss: 2.30410 - acc: 0.1071 | val_loss: 2.29590 - val_acc: 0.1025 -- iter: 2000/2000
+Training Step: 32  | total loss: 2.07924 | time: 11.502s
+| RMSProp | epoch: 002 | loss: 2.07924 - acc: 0.2220 | val_loss: 2.05278 - val_acc: 0.2850 -- iter: 2000/2000
 --
-Training Step: 48  | total loss: 2.30410 | time: 11.776s
-| RMSProp | epoch: 003 | loss: 2.30410 - acc: 0.1001 | val_loss: 2.28952 - val_acc: 0.1275 -- iter: 2000/2000
+Training Step: 48  | total loss: 2.08184 | time: 11.294s
+| RMSProp | epoch: 003 | loss: 2.08184 - acc: 0.2482 | val_loss: 2.01115 - val_acc: 0.2450 -- iter: 2000/2000
 --
-Training Step: 64  | total loss: 2.29518 | time: 11.597s
-| RMSProp | epoch: 004 | loss: 2.29518 - acc: 0.1155 | val_loss: 2.27375 - val_acc: 0.1775 -- iter: 2000/2000
+Training Step: 64  | total loss: 1.99466 | time: 11.299s
+| RMSProp | epoch: 004 | loss: 1.99466 - acc: 0.2754 | val_loss: 1.91739 - val_acc: 0.2975 -- iter: 2000/2000
 --
-Training Step: 80  | total loss: 2.27347 | time: 11.664s
-| RMSProp | epoch: 005 | loss: 2.27347 - acc: 0.1466 | val_loss: 2.21062 - val_acc: 0.2475 -- iter: 2000/2000
+Training Step: 80  | total loss: 1.97854 | time: 11.233s
+| RMSProp | epoch: 005 | loss: 1.97854 - acc: 0.2813 | val_loss: 1.89704 - val_acc: 0.3475 -- iter: 2000/2000
 --
 ```
 
@@ -140,19 +140,31 @@ x_train shape: (2000, 32, 32, 3)
 [6 9 9 4 1]
 new x_train shape: (2000, 3, 32, 32)
 epoch 1
-time cost 10.754 train loss 2.3027 train acc 0.0995
+time cost 10.3165 train loss 4.5342 train acc 0.1445
 ------------------------
 epoch 2
-time cost 9.9615 train loss 2.3024 train acc 0.098
+time cost 10.2127 train loss 2.1014 train acc 0.226
 ------------------------
 epoch 3
-time cost 9.9563 train loss 2.302 train acc 0.1095
+time cost 10.4562 train loss 1.9809 train acc 0.2855
 ------------------------
 epoch 4
-time cost 9.8859 train loss 2.3015 train acc 0.116
+time cost 10.2894 train loss 1.8902 train acc 0.3175
 ------------------------
 epoch 5
-time cost 9.8458 train loss 2.301 train acc 0.121
+time cost 10.1774 train loss 1.8126 train acc 0.35
 ------------------------
-
 ```
+
+## results
+
+| lib      | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
+| ---------|--------------|------------------|---------|---------|------------|-------------|
+|epo time  |       25       |         9.2         |    10.29     |     11.395    |            |             |
+|imgs/s    |              |                  |         |         |            |             |
+|5 epo acc |              |                  |         |         |            |             |
+|5 epo loss|              |                  |         |         |            |             |
+
+
+
+              

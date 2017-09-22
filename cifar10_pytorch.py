@@ -32,6 +32,9 @@ print('new x_train shape:', x_train.shape)
 x_train = torch.from_numpy(x_train)
 y_train = torch.from_numpy(y_train)
 
+x_test  = x_train[:400]
+x_test = Variable(x_test, volatile=True)
+
 train_loader = DataLoader(TensorDataset(x_train, y_train), batch_size=batch_size, shuffle=False, num_workers=4)
 
 
@@ -58,13 +61,13 @@ class CNet(nn.Module):
 
         out = out.view(out.size(0), -1)
         out = F.relu(self.fc1(out))
-        out = F.relu(self.fc2(out))
+        out = self.fc2(out)  # last linear!!!
         return out
 
 
 net = CNet()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.1)
+optimizer = optim.RMSprop(net.parameters(), lr=0.001)
 
 # train
 for i in range(epochs):
@@ -94,6 +97,9 @@ for i in range(epochs):
 
     train_acc = round(1.0 * correct / total, 4)
     train_loss = train_loss / (batch_idx + 1)
+
+    net.eval()
+    net(x_test)
 
     print("time cost", time_cost, "train loss", round(train_loss, 4), "train acc", train_acc)
     print("------------------------")

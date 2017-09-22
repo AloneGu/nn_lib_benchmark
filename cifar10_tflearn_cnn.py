@@ -10,9 +10,6 @@ from tflearn.optimizers import RMSProp
 batch_size = 128
 num_classes = 10
 epochs = 5
-data_augmentation = True
-num_predictions = 20
-steps = 100
 
 # The data, shuffled and split between train and test sets:
 (x_train, y_train) = pickle.load(open('data/cifar_data.pkl', 'rb'))
@@ -28,16 +25,18 @@ y_test = y_train[:test_cnt]
 # Convolutional network building
 network = input_data(shape=[None, 32, 32, 3])
 network = conv_2d(network, 32, 3, activation='relu', padding='same')
-network = conv_2d(network, 32, 3, activation='relu', padding='same')
+network = conv_2d(network, 32, 3, activation='relu')
 network = max_pool_2d(network, 2)
-network = conv_2d(network, 64, 3, activation='relu')
+network = dropout(network, 0.25)
+network = conv_2d(network, 64, 3, activation='relu', padding='same')
 network = conv_2d(network, 64, 3, activation='relu')
 network = max_pool_2d(network, 2)
+network = dropout(network, 0.25)
 network = fully_connected(network, 512, activation='relu')
-network = dropout(network, 0.5)
 network = fully_connected(network, 10, activation='softmax')
 
-network = regression(network, optimizer="rmsprop",
+opt = RMSProp(learning_rate=0.001, epsilon=1e-08, decay=0)
+network = regression(network, optimizer=opt,
                      loss='categorical_crossentropy')
 
 # Train using classifier

@@ -16,7 +16,7 @@ num_classes = 10
 epochs = 5
 
 # The data, shuffled and split between train and test sets:
-(x_train, y_train) = pickle.load(open('data/cifar_data.pkl', 'rb'))
+(x_train, y_train) = pickle.load(open('data/big_cifar_data.pkl', 'rb'))
 y_train = y_train.flatten()
 print('x_train shape:', x_train.shape)
 print(y_train[:5])
@@ -32,7 +32,9 @@ print('new x_train shape:', x_train.shape)
 x_train = torch.from_numpy(x_train)
 y_train = torch.from_numpy(y_train)
 
-train_loader = DataLoader(TensorDataset(x_train, y_train), batch_size=batch_size, shuffle=False, num_workers=4)
+test_cnt = int(len(x_train) * 0.2)
+x_test = x_train[:test_cnt]
+y_test = y_train[:test_cnt]
 
 
 class CNet(nn.Module):
@@ -62,9 +64,13 @@ class CNet(nn.Module):
         return out
 
 
+train_loader = DataLoader(TensorDataset(x_train, y_train), batch_size=batch_size, shuffle=False, num_workers=4)
 net = CNet()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.1)
+optimizer = optim.SGD(net.parameters(), lr=1e-3, momentum=0.9, weight_decay=1e-4)
+
+x_test = Variable(x_test, volatile=True)
+y_test = Variable(y_test)
 
 # train
 for i in range(epochs):
@@ -88,6 +94,11 @@ for i in range(epochs):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
+    # cal test loss
+    net.eval()
+    test_out = net(x_test)
+    test_loss = criterion(test_out, y_test).data[0]
+
     end_t = time.time()
     time_cost = end_t - start_t
     time_cost = round(time_cost, 4)
@@ -96,4 +107,5 @@ for i in range(epochs):
     train_loss = train_loss / (batch_idx + 1)
 
     print("time cost", time_cost, "train loss", round(train_loss, 4), "train acc", train_acc)
+    print("test loss", round(test_loss, 4))
     print("------------------------")

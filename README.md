@@ -10,7 +10,7 @@ run params:
 batch_size = 128
 num_classes = 10
 epochs = 5
-optimizer = default RMSprop
+optimizer = default RMSprop  ( SGD for pytorch)
 ```
 
 model structure:
@@ -137,31 +137,22 @@ Training Step: 80  | total loss: 2.27347 | time: 11.664s
 
 ```
 x_train shape: (2000, 32, 32, 3)
-[[6]
- [9]
- [9]
- [4]
- [1]]
+[6 9 9 4 1]
 new x_train shape: (2000, 3, 32, 32)
-<class 'torch.autograd.variable.Variable'>
 epoch 1
-time cost 10.8026 train loss 6502.6393 train acc 0.099
-test loss 2.3152
+time cost 10.754 train loss 2.3027 train acc 0.0995
 ------------------------
 epoch 2
-time cost 11.3396 train loss 2.3097 train acc 0.103
-test loss 2.3061
+time cost 9.9615 train loss 2.3024 train acc 0.098
 ------------------------
 epoch 3
-time cost 11.5777 train loss 2.305 train acc 0.1035
-test loss 2.3047
+time cost 9.9563 train loss 2.302 train acc 0.1095
 ------------------------
 epoch 4
-time cost 11.4793 train loss 2.3042 train acc 0.1035
-test loss 2.3039
+time cost 9.8859 train loss 2.3015 train acc 0.116
 ------------------------
 epoch 5
-time cost 10.6634 train loss 2.303 train acc 0.102
-test loss 2.3037
+time cost 9.8458 train loss 2.301 train acc 0.121
 ------------------------
+
 ```

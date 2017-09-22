@@ -11,6 +11,8 @@ batch_size = 128
 num_classes = 10
 epochs = 5
 optimizer = default RMSprop
+
+cpu: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 CPUs), ~2.6GHz
 ```
 
 model structure:
@@ -57,9 +59,7 @@ activation_6 (Activation)    (None, 10)                0
 =================================================================
 ```
 
-### outputs cpu
-
-cpu: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 CPUs), ~2.6GHz
+### outputs
 
 * keras theano
 

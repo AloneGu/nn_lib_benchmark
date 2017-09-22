@@ -68,15 +68,15 @@ Using TensorFlow backend.
 x_train shape: (2000, 32, 32, 3)
 compile done time cost: 0.0258s
 Train on 2000 samples, validate on 400 samples
-10s - loss: 2.2613 - acc: 0.1510 - val_loss: 2.2699 - val_acc: 0.1750
+9s - loss: 2.2874 - acc: 0.1745 - val_loss: 2.1669 - val_acc: 0.2700
 Epoch 2/5
-9s - loss: 2.0728 - acc: 0.2580 - val_loss: 1.8698 - val_acc: 0.3400
+8s - loss: 2.0689 - acc: 0.2360 - val_loss: 2.0315 - val_acc: 0.3025
 Epoch 3/5
-9s - loss: 1.9295 - acc: 0.3205 - val_loss: 1.7201 - val_acc: 0.3825
+8s - loss: 1.9458 - acc: 0.2910 - val_loss: 1.9688 - val_acc: 0.2725
 Epoch 4/5
-9s - loss: 1.7916 - acc: 0.3710 - val_loss: 1.6138 - val_acc: 0.4175
+9s - loss: 1.8431 - acc: 0.3425 - val_loss: 1.8079 - val_acc: 0.3375
 Epoch 5/5
-9s - loss: 1.7135 - acc: 0.3745 - val_loss: 1.5312 - val_acc: 0.4450
+8s - loss: 1.7480 - acc: 0.3740 - val_loss: 1.6333 - val_acc: 0.4075
 ```
 
 * keras theano

@@ -78,6 +78,6 @@ print("compile done", "time cost: {:.4f}s".format(end_t - start_t))
 model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
-          shuffle=True,
+          shuffle=False,
           verbose=2,
           validation_data=(x_test, y_test))

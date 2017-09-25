@@ -150,7 +150,6 @@ Training Step: 64  | total loss: 2.07465 | time: 9.771s
 --
 Training Step: 80  | total loss: 2.03465 | time: 9.830s
 | RMSProp | epoch: 005 | loss: 2.03465 - acc: 0.2470 | val_loss: 1.93946 - val_acc: 0.3250 -- iter: 2000/2000
-
 --
 ```
 

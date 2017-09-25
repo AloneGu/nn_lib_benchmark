@@ -154,6 +154,32 @@ Training Step: 80  | total loss: 1.97854 | time: 11.233s
 
 * tensorflow
 
+```
+Using TensorFlow backend.
+x_train shape: (2000, 32, 32, 3)
+y_train shape: (2000, 10)
+---------------
+train loss: 2.174743    train acc: 0.223958
+test loss: 2.196861    test acc: 0.229167
+Epoch 1 of 5 took 15.408910s
+---------------
+train loss: 2.009781    train acc: 0.313542
+test loss: 2.001667    test acc: 0.293229
+Epoch 2 of 5 took 14.713977s
+---------------
+train loss: 1.930652    train acc: 0.330729
+test loss: 2.023897    test acc: 0.312500
+Epoch 3 of 5 took 15.094896s
+---------------
+train loss: 1.872494    train acc: 0.347917
+test loss: 1.848759    test acc: 0.344792
+Epoch 4 of 5 took 14.278087s
+---------------
+train loss: 1.865375    train acc: 0.366146
+test loss: 1.903076    test acc: 0.364583
+Epoch 5 of 5 took 14.354777s
+```
+
 * tensorlayer
 
 ```
@@ -207,10 +233,10 @@ Epoch 5 of 5 took 10.336267s
 
 | lib       | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
 | ----------|--------------|------------------|---------|---------|------------|-------------|
-|epo time(s)|25           |8.4               |10.29    |9.55     |none        |10.53|
-|imgs/s     |96           |286               |233      |251      |none        |228|
-|5 epo acc  |0.39         |0.37              |0.35     |0.26     |none        |0.30|
-|5 epo loss |1.72         |1.75              |1.81     |2.04     |none        |1.92|
+|epo time(s)|25           |8.4               |10.29    |9.55     |14.77        |10.53|
+|imgs/s     |96           |286               |233      |251      |163      |228|
+|5 epo acc  |0.39         |0.37              |0.35     |0.26     |0.37        |0.30|
+|5 epo loss |1.72         |1.75              |1.81     |2.04     |1.87        |1.92|
 
 
 

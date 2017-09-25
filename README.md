@@ -90,15 +90,15 @@ Using TensorFlow backend.
 x_train shape: (2000, 32, 32, 3)
 compile done time cost: 0.0258s
 Train on 2000 samples, validate on 400 samples
-10s - loss: 2.2553 - acc: 0.1600 - val_loss: 2.1061 - val_acc: 0.2350
+9s - loss: 2.3188 - acc: 0.1645 - val_loss: 2.0868 - val_acc: 0.2600
 Epoch 2/5
-10s - loss: 2.0123 - acc: 0.2485 - val_loss: 1.9689 - val_acc: 0.2650
+9s - loss: 2.0285 - acc: 0.2545 - val_loss: 1.9895 - val_acc: 0.2925
 Epoch 3/5
-10s - loss: 1.8689 - acc: 0.3270 - val_loss: 1.7526 - val_acc: 0.3825
+9s - loss: 1.9133 - acc: 0.2975 - val_loss: 1.7422 - val_acc: 0.3625
 Epoch 4/5
-10s - loss: 1.7143 - acc: 0.3735 - val_loss: 1.6562 - val_acc: 0.3950
+9s - loss: 1.7703 - acc: 0.3585 - val_loss: 1.5930 - val_acc: 0.4175
 Epoch 5/5
-10s - loss: 1.6780 - acc: 0.3875 - val_loss: 1.5506 - val_acc: 0.4500
+9s - loss: 1.6563 - acc: 0.3955 - val_loss: 1.5242 - val_acc: 0.4500
 ```
 
 * pytorch
@@ -136,20 +136,21 @@ Log directory: /tmp/tflearn_logs/
 Training samples: 2000
 Validation samples: 400
 --
-Training Step: 16  | total loss: 2.23561 | time: 11.649s
-| RMSProp | epoch: 001 | loss: 2.23561 - acc: 0.1553 | val_loss: 2.15268 - val_acc: 0.2525 -- iter: 2000/2000
+Training Step: 16  | total loss: 2.26586 | time: 10.827s
+| RMSProp | epoch: 001 | loss: 2.26586 - acc: 0.1553 | val_loss: 2.20443 - val_acc: 0.2175 -- iter: 2000/2000
 --
-Training Step: 32  | total loss: 2.07924 | time: 11.502s
-| RMSProp | epoch: 002 | loss: 2.07924 - acc: 0.2220 | val_loss: 2.05278 - val_acc: 0.2850 -- iter: 2000/2000
+Training Step: 32  | total loss: 2.11421 | time: 9.966s
+| RMSProp | epoch: 002 | loss: 2.11421 - acc: 0.2104 | val_loss: 2.07853 - val_acc: 0.2550 -- iter: 2000/2000
 --
-Training Step: 48  | total loss: 2.08184 | time: 11.294s
-| RMSProp | epoch: 003 | loss: 2.08184 - acc: 0.2482 | val_loss: 2.01115 - val_acc: 0.2450 -- iter: 2000/2000
+Training Step: 48  | total loss: 2.08030 | time: 9.723s
+| RMSProp | epoch: 003 | loss: 2.08030 - acc: 0.2243 | val_loss: 2.01737 - val_acc: 0.2625 -- iter: 2000/2000
 --
-Training Step: 64  | total loss: 1.99466 | time: 11.299s
-| RMSProp | epoch: 004 | loss: 1.99466 - acc: 0.2754 | val_loss: 1.91739 - val_acc: 0.2975 -- iter: 2000/2000
+Training Step: 64  | total loss: 2.07465 | time: 9.771s
+| RMSProp | epoch: 004 | loss: 2.07465 - acc: 0.2335 | val_loss: 1.97120 - val_acc: 0.3100 -- iter: 2000/2000
 --
-Training Step: 80  | total loss: 1.97854 | time: 11.233s
-| RMSProp | epoch: 005 | loss: 1.97854 - acc: 0.2813 | val_loss: 1.89704 - val_acc: 0.3475 -- iter: 2000/2000
+Training Step: 80  | total loss: 2.03465 | time: 9.830s
+| RMSProp | epoch: 005 | loss: 2.03465 - acc: 0.2470 | val_loss: 1.93946 - val_acc: 0.3250 -- iter: 2000/2000
+
 --
 ```
 
@@ -229,10 +230,10 @@ Epoch 5 of 5 took 10.336267s
 
 | lib       | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
 | ----------|--------------|------------------|---------|---------|------------|-------------|
-|epo time(s)|25.6           |10               |10.29    |9.55     |14.1        |10.53|
-|imgs/s     |94           |240               |233      |251      |170      |228|
-|5 epo acc  |0.41         |0.38              |0.35     |0.26     |0.35        |0.30|
-|5 epo loss |1.62         |1.67              |1.81     |2.04     |2.10        |1.92|
+|epo time(s)|25.6           |9               |10.29    |10.02     |14.1        |10.53|
+|imgs/s     |94           |267               |233      |240      |170      |228|
+|5 epo acc  |0.41         |0.40              |0.35     |0.25     |0.35        |0.30|
+|5 epo loss |1.62         |1.66              |1.81     |2.03     |2.10        |1.92|
 
 
 

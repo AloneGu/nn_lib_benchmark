@@ -179,7 +179,6 @@ Epoch 4 of 5 took 13.845189s
 train loss: 2.102032    train acc: 0.355729
 test loss: 2.113987    test acc: 0.339583
 Epoch 5 of 5 took 14.666812s
-
 ```
 
 * tensorlayer
@@ -199,9 +198,6 @@ x_train shape: (2000, 32, 32, 3)
   [TL] FlattenLayer model/flatten: 2304
   [TL] DenseLayer  model/d1relu: 512 relu
   [TL] DenseLayer  model/output: 10 identity
-2017-09-22 17:39:11.667582: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-09-22 17:39:11.667608: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-09-22 17:39:11.667632: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
   layer   0: model/cnn1/Relu:0    (?, 32, 32, 32)    float32
   layer   1: model/cnn2/Relu:0    (?, 30, 30, 32)    float32
   layer   2: model/pool1:0        (?, 15, 15, 32)    float32

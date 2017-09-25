@@ -20,7 +20,8 @@ test_cnt = int(len(x_train) * 0.2)
 x_test = x_train[:test_cnt]
 y_test = y_train[:test_cnt]
 
-print('y_train shape:',y_train.shape)
+print('y_train shape:', y_train.shape)
+
 
 def model(x, y, is_train=False):
     input_layer = x
@@ -43,10 +44,11 @@ def model(x, y, is_train=False):
 
     # Pooling Layer #1
     pool1 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+    dropout1 = tf.layers.dropout(inputs=pool1, rate=0.25, training=is_train)
 
     # Convolutional Layer #1
     conv3 = tf.layers.conv2d(
-        inputs=pool1,
+        inputs=dropout1,
         filters=64,
         kernel_size=[3, 3],
         padding="same",
@@ -62,15 +64,14 @@ def model(x, y, is_train=False):
 
     # Pooling Layer #1
     pool2 = tf.layers.max_pooling2d(inputs=conv4, pool_size=[2, 2], strides=2)
+    dropout2 = tf.layers.dropout(inputs=pool2, rate=0.25, training=is_train)
 
     # Dense Layer
-    pool2_flat = tf.reshape(pool2, [-1, 2304])
+    pool2_flat = tf.reshape(dropout2, [-1, 2304])
     dense1 = tf.layers.dense(inputs=pool2_flat, units=512, activation=tf.nn.relu)
-    dropout1 = tf.layers.dropout(
-        inputs=dense1, rate=0.25, training=is_train)
 
     # Logits Layer
-    logits = tf.layers.dense(inputs=dropout1, units=10, activation=tf.nn.relu, name='output')
+    logits = tf.layers.dense(inputs=dense1, units=10, activation=tf.nn.softmax, name='output')
     loss = tf.losses.softmax_cross_entropy(y, logits)
 
     correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(y, 1))
@@ -91,6 +92,7 @@ sess.run(tf.global_variables_initializer())
 
 import time
 
+
 def minibatches(inputs=None, targets=None, batch_size=None, shuffle=False):
     assert len(inputs) == len(targets)
     if shuffle:
@@ -102,6 +104,7 @@ def minibatches(inputs=None, targets=None, batch_size=None, shuffle=False):
         else:
             excerpt = slice(start_idx, start_idx + batch_size)
         yield inputs[excerpt], targets[excerpt]
+
 
 for epoch in range(epochs):
     print("---------------")
@@ -118,7 +121,7 @@ for epoch in range(epochs):
     # test
     test_loss, test_acc, n_batch = 0, 0, 0
     for X_test_a, y_test_a in minibatches(x_train, y_train, batch_size=batch_size):
-        err, ac = sess.run([loss, acc], feed_dict={x_: X_test_a, y_: y_test_a,is_train_: False})
+        err, ac = sess.run([loss, acc], feed_dict={x_: X_test_a, y_: y_test_a, is_train_: False})
         test_loss += err
         test_acc += ac
         n_batch += 1

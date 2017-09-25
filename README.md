@@ -51,12 +51,13 @@ dense_1 (Dense)              (None, 512)               1180160
 _________________________________________________________________
 activation_5 (Activation)    (None, 512)               0
 _________________________________________________________________
-dropout_3 (Dropout)          (None, 512)               0
-_________________________________________________________________
 dense_2 (Dense)              (None, 10)                5130
 _________________________________________________________________
 activation_6 (Activation)    (None, 10)                0
 =================================================================
+Total params: 1,250,858
+Trainable params: 1,250,858
+Non-trainable params: 0
 ```
 
 ### outputs
@@ -71,15 +72,15 @@ new x_train shape: (2000, 3, 32, 32)
 compile done time cost: 0.0269s
 Train on 2000 samples, validate on 400 samples
 Epoch 1/5
-26s - loss: 2.2755 - acc: 0.1625 - val_loss: 2.1259 - val_acc: 0.2375
+26s - loss: 2.2666 - acc: 0.1645 - val_loss: 2.0803 - val_acc: 0.3325
 Epoch 2/5
-25s - loss: 2.0030 - acc: 0.2695 - val_loss: 2.0813 - val_acc: 0.2125
+26s - loss: 1.9582 - acc: 0.2975 - val_loss: 1.8677 - val_acc: 0.3150
 Epoch 3/5
-25s - loss: 1.9293 - acc: 0.3060 - val_loss: 1.8602 - val_acc: 0.3325
+25s - loss: 1.8363 - acc: 0.3280 - val_loss: 1.6976 - val_acc: 0.4225
 Epoch 4/5
-25s - loss: 1.7746 - acc: 0.3655 - val_loss: 1.7072 - val_acc: 0.3925
+25s - loss: 1.6964 - acc: 0.3715 - val_loss: 1.6402 - val_acc: 0.3950
 Epoch 5/5
-24s - loss: 1.7216 - acc: 0.3860 - val_loss: 1.6021 - val_acc: 0.4375
+26s - loss: 1.6284 - acc: 0.4085 - val_loss: 1.5499 - val_acc: 0.4200
 ```
 
 * keras tensorflow ( my default backend for running gen* scripts )
@@ -159,25 +160,26 @@ Using TensorFlow backend.
 x_train shape: (2000, 32, 32, 3)
 y_train shape: (2000, 10)
 ---------------
-train loss: 2.174743    train acc: 0.223958
-test loss: 2.196861    test acc: 0.229167
-Epoch 1 of 5 took 15.408910s
+train loss: 2.252062    train acc: 0.202083
+test loss: 2.215203    test acc: 0.246354
+Epoch 1 of 5 took 13.886195s
 ---------------
-train loss: 2.009781    train acc: 0.313542
-test loss: 2.001667    test acc: 0.293229
-Epoch 2 of 5 took 14.713977s
+train loss: 2.176240    train acc: 0.279687
+test loss: 2.177576    test acc: 0.281771
+Epoch 2 of 5 took 13.705260s
 ---------------
-train loss: 1.930652    train acc: 0.330729
-test loss: 2.023897    test acc: 0.312500
-Epoch 3 of 5 took 15.094896s
+train loss: 2.134318    train acc: 0.316667
+test loss: 2.142393    test acc: 0.315625
+Epoch 3 of 5 took 14.268473s
 ---------------
-train loss: 1.872494    train acc: 0.347917
-test loss: 1.848759    test acc: 0.344792
-Epoch 4 of 5 took 14.278087s
+train loss: 2.128967    train acc: 0.323437
+test loss: 2.117443    test acc: 0.340104
+Epoch 4 of 5 took 13.845189s
 ---------------
-train loss: 1.865375    train acc: 0.366146
-test loss: 1.903076    test acc: 0.364583
-Epoch 5 of 5 took 14.354777s
+train loss: 2.102032    train acc: 0.355729
+test loss: 2.113987    test acc: 0.339583
+Epoch 5 of 5 took 14.666812s
+
 ```
 
 * tensorlayer
@@ -227,16 +229,14 @@ test loss: 1.959207    test acc: 0.312500
 Epoch 5 of 5 took 10.336267s
 ```
 
-
-
 ## results
 
 | lib       | keras theano | keras tensorflow | pytorch | tflearn | tensorflow | tensorlayer |
 | ----------|--------------|------------------|---------|---------|------------|-------------|
-|epo time(s)|25           |8.4               |10.29    |9.55     |14.77        |10.53|
-|imgs/s     |96           |286               |233      |251      |163      |228|
-|5 epo acc  |0.39         |0.37              |0.35     |0.26     |0.37        |0.30|
-|5 epo loss |1.72         |1.75              |1.81     |2.04     |1.87        |1.92|
+|epo time(s)|25.6           |10               |10.29    |9.55     |14.1        |10.53|
+|imgs/s     |94           |240               |233      |251      |170      |228|
+|5 epo acc  |0.41         |0.38              |0.35     |0.26     |0.35        |0.30|
+|5 epo loss |1.62         |1.67              |1.81     |2.04     |2.10        |1.92|
 
 
 

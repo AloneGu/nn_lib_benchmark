@@ -90,15 +90,15 @@ Using TensorFlow backend.
 x_train shape: (2000, 32, 32, 3)
 compile done time cost: 0.0258s
 Train on 2000 samples, validate on 400 samples
-9s - loss: 2.2874 - acc: 0.1745 - val_loss: 2.1669 - val_acc: 0.2700
+10s - loss: 2.2553 - acc: 0.1600 - val_loss: 2.1061 - val_acc: 0.2350
 Epoch 2/5
-8s - loss: 2.0689 - acc: 0.2360 - val_loss: 2.0315 - val_acc: 0.3025
+10s - loss: 2.0123 - acc: 0.2485 - val_loss: 1.9689 - val_acc: 0.2650
 Epoch 3/5
-8s - loss: 1.9458 - acc: 0.2910 - val_loss: 1.9688 - val_acc: 0.2725
+10s - loss: 1.8689 - acc: 0.3270 - val_loss: 1.7526 - val_acc: 0.3825
 Epoch 4/5
-9s - loss: 1.8431 - acc: 0.3425 - val_loss: 1.8079 - val_acc: 0.3375
+10s - loss: 1.7143 - acc: 0.3735 - val_loss: 1.6562 - val_acc: 0.3950
 Epoch 5/5
-8s - loss: 1.7480 - acc: 0.3740 - val_loss: 1.6333 - val_acc: 0.4075
+10s - loss: 1.6780 - acc: 0.3875 - val_loss: 1.5506 - val_acc: 0.4500
 ```
 
 * pytorch
